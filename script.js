@@ -52,8 +52,8 @@ function descifrar_afin(mensaje_cifrado, k, b) {
   if(k === -1)
   {
     let ab = calcularAB(mensaje_cifrado);
-    k = ab.a;
-    b = ab.b;
+    document.getElementById('value_a').value = k = ab.a;
+    document.getElementById('value_b').value = b = ab.b;
   }
 
   let mensaje_descifrado = "";
@@ -109,13 +109,15 @@ String.prototype.letrasFrecuentes = function() {
   return mostFrequentLetters;
 }
 
-
 function mod(n,m) {
   return ((n % m) + m ) % m;
 }
 
 function calcularAB(text) {
   let frecuentes = text.letrasFrecuentes();
+
+  document.getElementById('letrasFrecuentes').value = "1.  " + frecuentes[0].toUpperCase() + " \n" + 
+                                                      "2.  " + frecuentes[1].toUpperCase() ;
 
   let best_a = frecuentes[0];
   let best_b = frecuentes[1];
