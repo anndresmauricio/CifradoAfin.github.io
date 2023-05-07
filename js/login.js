@@ -1,8 +1,6 @@
-
-
-const now = new Date();
-const year = now.getFullYear();
-const day = now.getDate();
+const now   = new Date();
+const year  = now.getFullYear();
+const day   = now.getDate();
 const month = now.getMonth() + 1;
 
 const secretKey = `seguridad${day}${month}${year}`;
@@ -35,7 +33,7 @@ function doLogin() {
 
         if ((userName === userNameSS || userName === userMailSS) && userPass === decrypt(userPassSS)) {
             alert("Inicio de Sesion Correcto");
-            window.location.href = 'index.html';
+            window.location.href = 'main.html';
             cleanForm();
             return;
         }
@@ -99,14 +97,14 @@ function initUser() {
 function disableScreen() {
     try {
 
-        let delayTime = parseInt(sessionStorage.getItem('timer')) 
+        let delayTime = parseInt(sessionStorage.getItem('timer') ?? '30000') 
+        var div      = document.createElement("div");
 
-        var div = document.createElement("div");
+        div.focus();
         div.className += "overlay";
         document.body.appendChild(div);
 
         setTimeout(() => {
-            console.log("Delayed for 1 second.");
             div.remove();
         }, delayTime);
 
