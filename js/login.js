@@ -38,7 +38,7 @@ function doLogin() {
             return;
         }
 
-        if (attemptsSS <= 3 && attemptsSS > 0) {
+        if (attemptsSS < 3 && attemptsSS > 0) {
             sessionStorage.setItem('attempts', (attemptsSS - 1));
             cleanForm();
             alert("Datos ingresados errados, intentar de nuevo");
